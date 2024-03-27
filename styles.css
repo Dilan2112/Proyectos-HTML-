@@ -1,0 +1,291 @@
+/* Globales */
+*::after,
+*::before,
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0 auto;
+    max-width: 1200px;
+    font-family: 'Lato';
+    color: #333;
+}
+
+.icon-cart{
+    width: 40px;
+    height: 40px;
+    stroke: #000;
+}
+
+.icon-cart:hover{
+    cursor: pointer;
+}
+
+img{
+    max-width: 100%;
+}
+
+/* Header */
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0 30px 0; /* Reducir el padding */
+}
+
+header h1 {
+    font-size: 2.5rem; /* Tamaño del texto del título */
+    margin: 0; /* Eliminar el margen superior e inferior predeterminado */
+    padding: 5px; /* Reducir el padding */
+    text-align: center; /* Centrar el texto */
+}
+
+.container-icon{
+    position: relative;
+}
+
+.count-products{
+    position: absolute;
+    top: 45%; /* Ajusta la posición vertical del contador */
+    right: 0;
+
+    background-color: #000;
+    color: #fff;
+    width: 16px; /* Reducir el ancho del contador */
+    height: 16px; /* Reducir la altura del contador */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 8px; /* Reducir el tamaño de fuente del contador */
+}
+
+#contador-productos{
+    font-size: 11px;
+}
+
+.container-cart-products {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #fff;
+    width: 320px; /* Reducir el ancho */
+    z-index: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+    border-radius: 10px;
+    display: flex; /* Añadido para usar flexbox */
+    flex-direction: column; /* Añadido para alinear verticalmente */
+    align-items: center; /* Añadido para alinear verticalmente */
+}
+
+.btn-comprar {
+    border: none;
+    background-color: rgb(14, 13, 13); /* Verde */
+    color: rgb(255, 255, 255);
+    padding: 10px 24px; /* Ajustar el padding */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px; /* Reducir el tamaño de fuente */
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.btn-comprar:hover {
+    background-color: #24da51; /* Verde más oscuro al pasar el cursor */
+}
+
+.cart-product{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px; /* Reducir el padding */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+}
+
+.info-cart-product{
+    display: flex;
+    justify-content: space-between;
+    flex: 0.8;
+}
+
+.titulo-producto-carrito{
+    font-size: 20px; /* Reducir el tamaño del texto */
+}
+
+.precio-producto {
+    font-weight: bold; /* Puedes ajustar el peso de la fuente según tu preferencia */
+    font-size: 18px; /* Utiliza el mismo tamaño de fuente que los precios en el carrito */
+}
+
+/* Estilos para los precios de los productos */
+.price {
+    font-weight: bold; /* Hace que el texto sea más grueso */
+    font-size: 20px; /* Ajusta el tamaño del texto */
+}
+
+.precio-producto-carrito {
+    font-weight: bold; /* Puedes ajustar el peso de la fuente según tu preferencia */
+    font-size: 18px; /* Utiliza el mismo tamaño de fuente que los títulos de productos */
+    margin-left: 8px; /* Reducir el margen */
+}
+
+.cantidad-producto-carrito{
+    font-weight: bold; /* Puedes ajustar el peso de la fuente según tu preferencia */
+    font-size: 20px; /* Reducir el tamaño del texto */
+}
+
+.icon-close{
+    width: 20px; /* Reducir el tamaño */
+    height: 20px; /* Reducir el tamaño */
+}
+
+.icon-close:hover{
+    stroke: red;
+    cursor: pointer;
+}
+
+.cart-total{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0; /* Reducir el padding */
+    gap: 15px; /* Reducir el espacio entre elementos */
+}
+
+.cart-total h3{
+    font-size: 16px; /* Reducir el tamaño del texto */
+    font-weight: 700;
+}
+
+.total-pagar{
+    font-size: 16px; /* Reducir el tamaño del texto */
+    font-weight: 900;
+}
+
+.hidden-cart{
+    display: none;
+}
+
+/* Main */
+.container {
+    padding: 0 5px; /* Reducir el espacio a los lados para dispositivos pequeños */
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.container-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajustar los tamaños de columna */
+    gap: 15px; /* Reducir el espacio entre elementos */
+    text-align: center;
+}
+
+.item {
+    position: relative; /* Añade una posición relativa para controlar el tamaño de la imagen */
+}
+
+.item img {
+    max-width: 100%; /* Establece el ancho máximo de la imagen al 100% del contenedor */
+    height: auto; /* Permite que la altura de la imagen se ajuste automáticamente */
+    max-height: 250px; /* Limita la altura máxima de la imagen para que no se desborde */
+    object-fit: cover; /* Ajusta la forma en que la imagen cubre su contenedor */
+    border-radius: 8px; /* Añade bordes redondeados */
+    transition: all 0.5s; /* Agrega una transición suave */
+}
+
+.item:hover img {
+    transform: scale(1.05); /* Ajusta la escala de la imagen al pasar el cursor */
+}
+
+/* Botones */
+.btn-comprar,
+.btn-add-cart {
+    border: none;
+    background-color: #000;
+    color: #fff;
+    padding: 14px 28px; /* Aumentar el padding para aumentar más el tamaño de los botones */
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 14px; /* Mantener el tamaño de fuente */
+    transition: background-color 0.3s;
+}
+
+.btn-comprar:hover,
+.btn-add-cart:hover {
+    background-color: #24da51; /* Cambia el color de fondo al pasar el cursor */
+}
+
+.btn-whatsapp {
+    /* Estilos existentes */
+    border: none;
+    background-color: #000;
+    color: #fff;
+    padding: 14px 28px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+
+    /* Nuevos estilos para centrado */
+    position: relative; /* Cambiar a posición relativa */
+    display: block; /* Convertir en bloque para centrar horizontalmente */
+    margin: 0 auto; /* Centrar horizontalmente */
+}
+
+.btn-whatsapp:hover {
+    background-color: #24da51; /* Cambiar el color de fondo al pasar el cursor igual que el botón de agregar al carrito */
+}
+
+/* Estilos específicos para dispositivos móviles */
+@media only screen and (max-width: 768px) {
+    .container {
+        padding: 0 5px; /* Reducir aún más el espacio a los lados para dispositivos extra pequeños */
+    }
+    /* Reduce el tamaño del título */
+    header h1 {
+        font-size: 2rem; /* Reducir el tamaño del texto para dispositivos móviles */
+        padding: 5px; /* Reducir el relleno para dispositivos móviles */
+    }
+
+    /* Ajusta el tamaño del contador del carrito */
+    .count-products {
+        width: 14px; /* Reducir el ancho del contador */
+        height: 14px; /* Reducir la altura del contador */
+        font-size: 8px; /* Reducir el tamaño de fuente del contador */
+    }
+
+    /* Ajusta el tamaño de los botones */
+    .btn-comprar,
+    .btn-add-cart {
+        padding: 12px 24px; /* Aumentar el padding para dispositivos móviles */
+        font-size: 12px; /* Mantener el tamaño de fuente */
+    }
+
+    /* Ajusta el tamaño de los títulos de producto en el carrito */
+    .titulo-producto-carrito {
+        font-size: 14px; /* Reducir el tamaño del texto */
+    }
+
+    /* Ajusta el tamaño de los precios y cantidades en el carrito */
+    .precio-producto,
+    .precio-producto-carrito,
+    .cantidad-producto-carrito {
+        font-size: 14px; /* Reducir el tamaño del texto */
+    }
+
+    /* Ajusta el tamaño del icono de cerrar en el carrito */
+    .icon-close {
+        width: 18px; /* Reducir el tamaño */
+        height: 18px; /* Reducir el tamaño */
+    }
+
+    /* Ajusta el tamaño del total a pagar en el carrito */
+    .total-pagar {
+        font-size: 14px; /* Reducir el tamaño del texto */
+    }
+}
